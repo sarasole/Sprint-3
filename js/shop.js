@@ -80,6 +80,7 @@ function buy(id) {
             }
         }
         console.log(cartList)
+        cleanCart();
     }
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cartList array
@@ -88,6 +89,7 @@ generateCart();
 
 // Exercise 2
 function cleanCart() {
+    cartList = [];
 }
 
 // Exercise 3
