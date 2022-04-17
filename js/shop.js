@@ -105,15 +105,22 @@ cart = [...cartList.reduce((prev, next) =>{
     prev.get(next.id).quantity++;
     return prev;
 }, new Map).values()];
-
-console.log(cart);
     // Using the "cartlist" array that contains all the items in the shopping cart, 
     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
 }
 
 // Exercise 5
-function applyPromotionsCart() {
+function applyPromotionsCart() {    
+    cart.forEach((element)=> element.subtotal = element.price * element.quantity)    
+    cart.forEach(function(element){
+        if(element.id === 1 && element.quantity >= 3){                        
+                element.subtotalWithDiscount= element.subtotal - 10;
+            }else if(element.id === 3 && element.quantity >= 10){
+                element.subtotalWithDiscount = element.subtotal - (element.subtotal/3)*2;
+    }    
+})          
     // Apply promotions to each item in the array "cart"
+    console.log(cart);
 }
 
 
